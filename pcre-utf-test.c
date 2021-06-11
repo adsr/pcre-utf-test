@@ -1,9 +1,5 @@
-/* gcc pcre-utf-test.c pcre/.libs/libpcre.a -o pcre-utf-test && ./pcre-utf-test */
-
-
 #include <stdio.h>
 #include <string.h>
-#include <locale.h>
 
 #include "pcre/pcre.h"
 
@@ -17,11 +13,9 @@ int main(int argc, char **argv) {
     int subject_length;
     int rc, i;
 
-    setlocale(LC_ALL, "");
-
     pattern = "(*UCP)(*UTF8)\\w+";
 
-    subject = "   f\xc3\xb6retag   after"; /* företag */
+    subject = "   f\xc3\xb6retag   after"; /* should match "företag" */
     subject_length = strlen(subject);
 
     re = pcre_compile(

@@ -1,0 +1,3 @@
+[submodule "pcre"]
+	path = pcre
+	url = https://github.com/adsr/pcre.git
